@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 18:35:44 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/10 18:59:20 by volivry          ###   ########.fr       */
+/*   Created: 2017/11/10 19:47:07 by volivry           #+#    #+#             */
+/*   Updated: 2017/11/10 20:10:45 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-int	ft_atoi(const char *str)
+void	*ft_memalloc(size_t size)
 {
-	int	i;
-	int	nb;
-	int	neg;
+	void	*mem;
 
-	i = 0;
-	nb = 0;
-	neg = 1;
-	while ((str[i] >= 8 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '-')
-		neg *= -1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	mem = (void *)malloc(sizeof(void) * size);
+	if (mem == NULL)
+		return (NULL);
+	while (size)
 	{
-		nb = nb * 10 + (str[i] - '0');
-		i++;
+		mem = 0;
+		mem++;
+		size--;
 	}
-	return (nb * neg);
+	return (mem);
 }

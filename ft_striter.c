@@ -1,36 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 18:35:44 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/10 18:59:20 by volivry          ###   ########.fr       */
+/*   Created: 2017/11/10 19:56:29 by volivry           #+#    #+#             */
+/*   Updated: 2017/11/10 20:02:44 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+void	ft_striter(char *s, void (*f)(char *))
 {
-	int	i;
-	int	nb;
-	int	neg;
-
-	i = 0;
-	nb = 0;
-	neg = 1;
-	while ((str[i] >= 8 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '-')
-		neg *= -1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	while (s)
 	{
-		nb = nb * 10 + (str[i] - '0');
-		i++;
+		(*f)(s);
+		s++;
 	}
-	return (nb * neg);
 }
