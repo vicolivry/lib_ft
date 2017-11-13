@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 13:36:40 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/13 17:50:34 by volivry          ###   ########.fr       */
+/*   Created: 2017/11/13 17:16:49 by volivry           #+#    #+#             */
+/*   Updated: 2017/11/13 18:01:58 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_strdup(const char *s1)
+char	*ft_strtrim(char const *s)
 {
-	char	*dst;
-	size_t	i;
+	char	*temp;
+	char	*trimmed_s;
+	int		i;
 
 	i = 0;
-	dst = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1));
-	if (dst == NULL)
-		return (NULL);
-	while (s1[i])
-	{
-		dst[i] = s1[i];
+	while (ft_iswhite(s[i]))
 		i++;
-	}
-	dst[i] = '\0';
-	return (dst);
+	temp = ft_strdup((char *)&s[i]);
+	ft_strrev(temp);
+	i = 0;
+	while (ft_iswhite(temp[i]))
+		i++;
+	trimmed_s = ft_strdup(&temp[i]);
+	trimmed_s = ft_strrev(trimmed_s);
+	return (trimmed_s);
 }

@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 13:36:40 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/13 17:50:34 by volivry          ###   ########.fr       */
+/*   Created: 2017/11/13 11:20:40 by volivry           #+#    #+#             */
+/*   Updated: 2017/11/13 15:54:06 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_strdup(const char *s1)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*dst;
-	size_t	i;
+	size_t			i;
+	unsigned char	*cast_dst;
+	unsigned char	*cast_src;
 
 	i = 0;
-	dst = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1));
-	if (dst == NULL)
-		return (NULL);
-	while (s1[i])
+	cast_dst = (unsigned char*)dst;
+	cast_src = (unsigned char*)src;
+	while (i < len)
 	{
-		dst[i] = s1[i];
+		cast_dst[i] = cast_src[i];
 		i++;
 	}
-	dst[i] = '\0';
+	dst = (void *)cast_dst;
 	return (dst);
 }
