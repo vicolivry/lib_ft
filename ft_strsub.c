@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/13 18:10:29 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/14 18:19:48 by volivry          ###   ########.fr       */
+/*   Created: 2017/11/14 11:28:41 by volivry           #+#    #+#             */
+/*   Updated: 2017/11/14 18:29:23 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
+	char			*newstr;
 	unsigned int	i;
 
 	i = 0;
-	while (s)
+	while (i < len)
 	{
-		(*f)(i, s);
-		s++;
+		newstr[i] = s[start];
 		i++;
+		start++;
 	}
+	ft_strdup(newstr);
+	if (!newstr)
+		return (NULL);
+	return (newstr);
 }

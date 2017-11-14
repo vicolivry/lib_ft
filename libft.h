@@ -6,7 +6,7 @@
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 12:31:30 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/13 18:13:28 by volivry          ###   ########.fr       */
+/*   Updated: 2017/11/14 19:02:53 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t len);
 char				*ft_strcat(char *s1, const char *s2);
 char				*ft_strncat(char *s1, const char *s2, size_t n);
-size_t				*ft_strlcat(char *dst, const char *src, size_t size); //TO DOOOOO
+size_t				ft_strlcat(char *dst, const char *src, size_t size);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strstr(const char *haystack, const char *needle);
@@ -56,6 +56,7 @@ int					ft_islower(int c);
 int					ft_isupper(int c);
 int					ft_iswhite(int c);
 char				*ft_strrev(char *s);
+int					ft_wordcount(const char *str, char c);
 
 void				*ft_memalloc(size_t size);  //Done 
 void				ft_memdel(void **ap); //done
@@ -64,14 +65,14 @@ void				ft_strdel(char **as);  //Done
 void				ft_strclr(char *s);  //Done
 void				ft_striter(char *s, void (*f)(char *)); //Done
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
-char				*ft_strmap(char const *s, char (*f)(char));
-char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-int					ft_strequ(char const *s1, char const *s2);
+char				*ft_strmap(char const *s, char (*f)(char)); //Done
+char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));//done
+int					ft_strequ(char const *s1, char const *s2);//done
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
-char				*ft_strsub(char const *s, unsigned int start, size_t len);
+char				*ft_strsub(char const *s, unsigned int start, size_t len); //done
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s); //Done
-char				**ft_strsplit(char const *s, char c);
+char				**ft_strsplit(char const *s, char c); //Done
 char				*ft_itoa(int n);
 void				ft_putchar(char c); //Done
 void				ft_putstr(char const *s); //Done

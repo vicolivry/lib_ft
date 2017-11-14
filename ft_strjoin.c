@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/13 18:10:29 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/14 18:19:48 by volivry          ###   ########.fr       */
+/*   Created: 2017/11/14 11:42:48 by volivry           #+#    #+#             */
+/*   Updated: 2017/11/14 11:48:23 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned int	i;
+	char	*newstr;
 
-	i = 0;
-	while (s)
-	{
-		(*f)(i, s);
-		s++;
-		i++;
-	}
+	newstr = ft_strcat((char *)s1, s2);
+	ft_strdup(newstr);
+	if (!newstr)
+		return (NULL);
+	return (newstr);
 }

@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_wordcount.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/13 18:10:29 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/14 18:19:48 by volivry          ###   ########.fr       */
+/*   Created: 2017/11/14 14:48:23 by volivry           #+#    #+#             */
+/*   Updated: 2017/11/14 18:27:55 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+int	ft_wordcount(const char *str, char c)
 {
-	unsigned int	i;
+	size_t			i;
+	unsigned int	count;
 
 	i = 0;
-	while (s)
+	count = 0;
+	while (str[i] == c && str[i])
+		i++;
+	while (str[i])
 	{
-		(*f)(i, s);
-		s++;
+		if (str[i] != c && str[i])
+		{
+			count++;
+			while (str[i] != c)
+				i++;
+		}
 		i++;
 	}
+	return (count);
 }
