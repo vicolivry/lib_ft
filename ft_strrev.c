@@ -6,7 +6,7 @@
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 17:36:39 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/13 17:41:43 by volivry          ###   ########.fr       */
+/*   Updated: 2017/11/15 14:10:57 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,12 @@ char	*ft_strrev(char *s)
 
 	i = 0;
 	j = ft_strlen(s) - 1;
-	tmp = 0;
-	while (i <= j)
+	while (i < j / 2)
 	{
-		tmp = s[j];
-		s[j] = s[i];
+		tmp = s[j - i];
+		s[j - i] = s[i];
 		s[i] = tmp;
 		i++;
-		j--;
 	}
 	return (s);
 }

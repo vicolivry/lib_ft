@@ -6,7 +6,7 @@
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 12:31:30 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/14 19:02:53 by volivry          ###   ########.fr       */
+/*   Updated: 2017/11/15 15:25:47 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,30 +58,30 @@ int					ft_iswhite(int c);
 char				*ft_strrev(char *s);
 int					ft_wordcount(const char *str, char c);
 
-void				*ft_memalloc(size_t size);  //Done 
-void				ft_memdel(void **ap); //done
-char				*ft_strnew(size_t size);  //Done
-void				ft_strdel(char **as);  //Done
-void				ft_strclr(char *s);  //Done
-void				ft_striter(char *s, void (*f)(char *)); //Done
+void				*ft_memalloc(size_t size);
+void				ft_memdel(void **ap);
+char				*ft_strnew(size_t size);
+void				ft_strdel(char **as);
+void				ft_strclr(char *s);
+void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
-char				*ft_strmap(char const *s, char (*f)(char)); //Done
-char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));//done
-int					ft_strequ(char const *s1, char const *s2);//done
+char				*ft_strmap(char const *s, char (*f)(char));
+char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
-char				*ft_strsub(char const *s, unsigned int start, size_t len); //done
+char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
-char				*ft_strtrim(char const *s); //Done
-char				**ft_strsplit(char const *s, char c); //Done
+char				*ft_strtrim(char const *s);
+char				**ft_strsplit(char const *s, char c);
 char				*ft_itoa(int n);
-void				ft_putchar(char c); //Done
-void				ft_putstr(char const *s); //Done
-void				ft_putendl(char const *s); //Done
-void				ft_putnbr(int n); //Done
-void				ft_putchar_fd(char c, int fd); //Done
-void				ft_putstr_fd(char const *s, int fd); //Done
-void				ft_putendl_fd(char const *s, int fd); //Done
-void				ft_putnbr_fd(int n, int fd); //done
+void				ft_putchar(char c);
+void				ft_putstr(char const *s);
+void				ft_putendl(char const *s);
+void				ft_putnbr(int n);
+void				ft_putchar_fd(char c, int fd);
+void				ft_putstr_fd(char const *s, int fd);
+void				ft_putendl_fd(char const *s, int fd);
+void				ft_putnbr_fd(int n, int fd);
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));

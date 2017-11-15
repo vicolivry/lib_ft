@@ -1,56 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/14 11:53:15 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/15 13:57:56 by volivry          ###   ########.fr       */
+/*   Created: 2017/11/15 10:04:23 by volivry           #+#    #+#             */
+/*   Updated: 2017/11/15 16:00:13 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-static int	ft_lenword(const char *str, char c)
+int		ft_countchar(int n)
 {
 	int	count;
 
-	count = 0;
-	while (*str != c)
+	count = 1;
+	if (n < 0)
 	{
-		str++;
+		n *= -1;
 		count++;
 	}
+	while (n /= 10)
+		count++;
 	return (count);
 }
 
-char		**ft_strsplit(char const *s, char c)
+char	*ft_itoa(int n)
 {
-	char	**tab;
+	char	*str;
 	int		i;
-	int		nb_word;
-	int		j;
+	int		len;
 
 	i = 0;
-	nb_word = ft_wordcount(s, c);
-	if ((tab = (char **)malloc(sizeof(char *) * nb_word + 1)) == NULL)
+	len = ft_countchar(n);
+	if (!(str = (char *)malloc(sizeof(char) * len + 1)))
 		return (NULL);
-	while (nb_word--)
+	if (n < 0)
 	{
-		while (*s == c && *s)
-			s++;
-		if (*s)
-		{
-			j = 0;
-			if ((tab[i] = malloc(sizeof(char) * ft_lenword(s, c) + 1)) == NULL)
-				return (NULL);
-			while (*s && *s != c)
-				tab[i][j++] = *s++;
-			tab[i++][j] = '\0';
-		}
+		str[0] = '-';
+		n *= -1;
 	}
-	tab[i] = NULL;
-	return (tab);
+	i = len;
+	while (i--)
+	{
+		if (str[i] != '-')
+			str[i] = '0' + (n % 10);
+		n /= 10;
+	}
+	str[len] = '\0';
+	return (str);
 }
