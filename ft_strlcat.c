@@ -6,7 +6,7 @@
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 18:31:32 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/14 18:59:28 by volivry          ###   ########.fr       */
+/*   Updated: 2017/11/16 11:30:15 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dstlen = ft_strlen(dst);
 	if (size <= dstlen)
 		return (srclen + size);
-	while (dst[i] && i < size - 1)
+	while (dst[i])
+		i++;
+	while (src && i < size - 1)
 		dst[i++] = *src++;
 	dst[i] = '\0';
 	return (srclen + dstlen);

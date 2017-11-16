@@ -6,7 +6,7 @@
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 10:38:09 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/15 17:41:12 by volivry          ###   ########.fr       */
+/*   Updated: 2017/11/16 16:06:45 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	{
 		cast_dst[i] = cast_src[i];
 		if (cast_src[i] == (unsigned char)c)
-				return (dst + i + 1);
+			return (dst + i + 1);
 		i++;
 	}
-		return (NULL);
+	return (NULL);
 }
