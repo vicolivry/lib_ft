@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/13 18:18:27 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/16 18:10:25 by volivry          ###   ########.fr       */
+/*   Created: 2017/11/17 10:28:30 by volivry           #+#    #+#             */
+/*   Updated: 2017/11/17 10:53:49 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,16 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	char			*newstr;
 
 	i = 0;
+	if (s == NULL)
+		return (NULL);
 	newstr = ft_strnew(ft_strlen(s));
 	if (newstr == NULL)
 		return (NULL);
 	while (s[i])
 	{
 		newstr[i] = (f)(s[i]);
-			i++;
+		i++;
 	}
+	newstr[i] = '\0';
 	return (newstr);
 }

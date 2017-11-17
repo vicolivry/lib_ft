@@ -6,7 +6,7 @@
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 15:14:59 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/15 15:11:33 by volivry          ###   ########.fr       */
+/*   Updated: 2017/11/17 11:03:59 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_putstr(char const *s)
 {
-	ft_putstr_fd(s, 1);
+	if (s != NULL)
+		ft_putstr_fd(s, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 10:44:30 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/14 11:32:45 by volivry          ###   ########.fr       */
+/*   Updated: 2017/11/17 10:55:41 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,16 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*newstr;
 
 	i = 0;
-	newstr = (char *)s;
-	while (newstr[i])
+	if (s == NULL)
+		return (NULL);
+	newstr = ft_strnew(ft_strlen(s));
+	if (newstr == NULL)
+		return (NULL);
+	while (s[i])
 	{
-		(*f)(i, newstr[i]);
+		newstr[i] = (f)(i, s[i]);
 		i++;
 	}
-	ft_strdup(newstr);
+	newstr[i] = '\0';
 	return (newstr);
 }

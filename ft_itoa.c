@@ -6,14 +6,14 @@
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 10:04:23 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/16 10:50:10 by volivry          ###   ########.fr       */
+/*   Updated: 2017/11/17 16:15:10 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-int		ft_countchar(int n)
+static int		ft_countchar(int n)
 {
 	int	count;
 
@@ -28,7 +28,7 @@ int		ft_countchar(int n)
 	return (count);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	char	*str;
 	int		i;

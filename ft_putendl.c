@@ -6,7 +6,7 @@
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 16:58:37 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/13 17:00:02 by volivry          ###   ########.fr       */
+/*   Updated: 2017/11/17 11:04:48 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_putendl(char const *s)
 {
-	ft_putendl_fd(s, 1);
+	if (s != NULL)
+		ft_putendl_fd(s, 1);
 }
