@@ -6,7 +6,7 @@
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 11:53:15 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/17 18:14:44 by volivry          ###   ########.fr       */
+/*   Updated: 2017/11/18 11:15:31 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char		**ft_strsplit(char const *s, char c)
 
 	v[2] = 0;
 	v[0] = ft_wordcount(s, c);
-	if (!s)
+	if (s == NULL)
 		return (NULL);
 	if ((tab = (char **)malloc(sizeof(char *) * v[0] + 1)) == NULL)
 		return (NULL);
@@ -41,7 +41,7 @@ char		**ft_strsplit(char const *s, char c)
 	{
 		while (*s == c && *s)
 			s++;
-		if (*s)
+		if (*s != '\0')
 		{
 			v[1] = 0;
 			if ((tab[v[2]] = malloc(ft_lenword(s, c) + 1)) == NULL)

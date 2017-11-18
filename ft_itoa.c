@@ -6,7 +6,7 @@
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 10:04:23 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/17 16:15:10 by volivry          ###   ########.fr       */
+/*   Updated: 2017/11/18 12:05:20 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char			*ft_itoa(int n)
 	i = 0;
 	long_n = (long)n;
 	len = ft_countchar(long_n);
-	if (!(str = (char *)malloc(sizeof(char) * len + 1)))
+	if (!(str = (char*)malloc(sizeof(char) * len + 1)))
 		return (NULL);
 	if (long_n < 0)
 	{

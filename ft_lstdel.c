@@ -6,7 +6,7 @@
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 15:23:43 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/17 16:26:18 by volivry          ###   ########.fr       */
+/*   Updated: 2017/11/18 20:07:36 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	size_t	i;
-	char	*str;
-
-	i = 0;
-	str = NULL;
-	if (*alst != NULL)
-		(*del)(str, i);
+	while (*alst != NULL)
+	{
+		ft_lstdel(&(*alst)->next, del);
+		ft_lstdelone(alst, del);
+	}
 }

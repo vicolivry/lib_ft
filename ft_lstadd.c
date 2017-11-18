@@ -6,7 +6,7 @@
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 15:23:56 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/17 16:34:15 by volivry          ###   ########.fr       */
+/*   Updated: 2017/11/18 19:47:52 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 void	ft_lstadd(t_list **alst, t_list *new)
 {
-	int	i;
+	t_list	*tmp;
 
-	i = 0;
-	if (*alst == NULL)
-		ft_putchar('?');
-	if (new == NULL)
-		ft_putchar('!');
+	tmp = *alst;
+	*alst = new;
+	new->next = tmp;
 }
