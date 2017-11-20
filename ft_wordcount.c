@@ -6,7 +6,7 @@
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 14:48:23 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/14 18:27:55 by volivry          ###   ########.fr       */
+/*   Updated: 2017/11/20 16:01:45 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	ft_wordcount(const char *str, char c)
 
 	i = 0;
 	count = 0;
+	if (str == NULL || c == 0)
+		return (0);
 	while (str[i] == c && str[i])
 		i++;
 	while (str[i])

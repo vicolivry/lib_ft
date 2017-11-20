@@ -6,7 +6,7 @@
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 10:04:23 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/18 12:05:20 by volivry          ###   ########.fr       */
+/*   Updated: 2017/11/20 16:15:17 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,6 @@ static int		ft_countchar(int n)
 	int	count;
 
 	count = 1;
-	if (n < 0)
-	{
-		n *= -1;
-		count++;
-	}
 	while (n /= 10)
 		count++;
 	return (count);
@@ -31,27 +26,22 @@ static int		ft_countchar(int n)
 char			*ft_itoa(int n)
 {
 	char	*str;
-	int		i;
 	int		len;
 	long	long_n;
 
-	i = 0;
 	long_n = (long)n;
-	len = ft_countchar(long_n);
-	if (!(str = (char*)malloc(sizeof(char) * len + 1)))
+	len = ft_countchar(n);
+	if (n < 0)
+	{
+		long_n = -(long)n;
+		len++;
+	}
+	if (!(str = ft_strnew(len)))
 		return (NULL);
-	if (long_n < 0)
-	{
-		str[0] = '-';
-		long_n *= -1;
-	}
-	i = len;
-	while (i--)
-	{
-		if (str[i] != '-')
-			str[i] = '0' + (long_n % 10);
-		long_n /= 10;
-	}
-	str[len] = '\0';
+	str[--len] = '0' + (long_n % 10);
+	while (long_n /= 10)
+		str[--len] = '0' + (long_n % 10);
+	if (n < 0)
+		*(str + 0) = '-';
 	return (str);
 }

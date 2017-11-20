@@ -6,7 +6,7 @@
 /*   By: volivry <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 11:53:15 by volivry           #+#    #+#             */
-/*   Updated: 2017/11/18 11:15:31 by volivry          ###   ########.fr       */
+/*   Updated: 2017/11/20 16:01:39 by volivry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	ft_lenword(const char *str, char c)
 {
 	int	count;
 
+	if (str == NULL || c == 0)
+		return (0);
 	count = 0;
 	while (*str != c)
 	{
@@ -29,28 +31,28 @@ static int	ft_lenword(const char *str, char c)
 char		**ft_strsplit(char const *s, char c)
 {
 	char	**tab;
-	int		v[3];
+	int		var[3];
 
-	v[2] = 0;
-	v[0] = ft_wordcount(s, c);
-	if (s == NULL)
+	var[2] = 0;
+	var[0] = ft_wordcount(s, c);
+	if (s == NULL || c == 0)
 		return (NULL);
-	if ((tab = (char **)malloc(sizeof(char *) * v[0] + 1)) == NULL)
+	if ((tab = (char **)malloc(sizeof(char *) * var[0] + 1)) == NULL)
 		return (NULL);
-	while (v[0]--)
+	while (var[0]--)
 	{
 		while (*s == c && *s)
 			s++;
 		if (*s != '\0')
 		{
-			v[1] = 0;
-			if ((tab[v[2]] = malloc(ft_lenword(s, c) + 1)) == NULL)
+			var[1] = 0;
+			if ((tab[var[2]] = malloc(ft_lenword(s, c) + 1)) == NULL)
 				return (NULL);
 			while (*s && *s != c)
-				tab[v[2]][v[1]++] = *s++;
-			tab[v[2]++][v[1]] = '\0';
+				tab[var[2]][var[1]++] = *s++;
+			tab[var[2]++][var[1]] = '\0';
 		}
 	}
-	tab[v[2]] = NULL;
+	tab[var[2]] = NULL;
 	return (tab);
 }
